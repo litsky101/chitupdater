@@ -53,10 +53,12 @@ var KTLogin = function() {
             e.preventDefault();
 
             validation.validate().then(function(status) {
-    		        if (status == 'Valid') {
-                  
-        				}
-      		  });
+		        if (status == 'Valid') {
+					$('#kt_login_signin_form').submit();
+				} else {
+
+				}
+		    });
         });
 
         // Handle forgot button

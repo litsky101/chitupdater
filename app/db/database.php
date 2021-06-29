@@ -1,5 +1,6 @@
 <?php
     class Database{
+
         private $conn = null;
         private $statement = null;
         private $query = null;
@@ -73,8 +74,19 @@
             }
         }
 
+        public function getSingle(){
+            try{
+                $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+                $this->execute();
+
+                return $this->statement->fetch();
+            }catch(PDOException $er){
+                throw $er;
+            }
+        }
+
         public function __destruct(){
             $this->conn = null;
         }
     }
- ?>
+?>

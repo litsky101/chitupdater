@@ -8,7 +8,7 @@
 
     public function index(){
       if (!isLoggedIn()) {
-        redirect('users/login');
+        $this->view('users/login', []);
       }else{
         $this->view('pages/index', []);
       }

@@ -38,9 +38,9 @@
 						<div class="container-fluid d-flex align-items-stretch justify-content-between">
 							<div class="text-white h1 mt-5"></div>
 							<div class="text-white h1 mt-5">
-								<span class="text-white font-weight-bolder font-size-base d-none d-md-inline mr-3">Hi Sean</span>
-								<!-- <a class="text-white font-weight-bolder font-size-base d-none d-md-inline mr-3" href="#">Logout</a> -->
-								<button type="button" class="btn btn-danger">Logout</button>
+								<span class="text-white font-weight-bolder font-size-base d-none d-md-inline mr-3">Welcome <?php echo $_SESSION['name'] ;?></span>
+								<!-- <button type="button" class="btn btn-danger">Logout</button> -->
+								<a class="btn btn-danger" href="<?php echo URLROOT; ?>/users/logout">Logout</a>
 							</div>
 						</div>
 					</div>

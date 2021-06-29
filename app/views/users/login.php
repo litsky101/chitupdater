@@ -2,7 +2,7 @@
 	<!--begin::Head-->
 	<head><base href="">
 		<meta charset="utf-8" />
-		<title>Login Page 1 | Keenthemes</title>
+		<title><?php echo SITENAME; ?></title>
 		<meta name="description" content="Login page example" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<link rel="canonical" href="https://keenthemes.com/metronic" />
@@ -77,8 +77,13 @@
 								<h3 class="font-size-h1">Sign In</h3>
 								<p class="text-muted font-weight-bold">Enter your username and password</p>
 							</div>
+
+							<div class="alert alert-danger <?php echo (!empty($data['incorrect']) ? '' : 'collapse'); ?>">
+								<?php echo $data['incorrect']; ?>
+							</div>
+
 							<!--begin::Form-->
-							<form class="form" novalidate="novalidate" id="kt_login_signin_form">
+							<form class="form" novalidate="novalidate" id="kt_login_signin_form" method="POST" action="<?php echo URLROOT; ?>/users/login">
 								<div class="form-group">
 									<input class="form-control form-control-solid h-auto py-5 px-6" type="text" placeholder="Username" name="username" autocomplete="off" />
 								</div>

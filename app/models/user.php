@@ -1,31 +1,30 @@
 <?php
+    class User{
 
-  class User{
+        public $id;
+        public $username;
+        public $password;
+        private $db = null;
 
-    public $username = null;
-    public $password = null;
-    private $db = null;
+        public function __construct(){
+            $this->db = new Database();
+        }
 
-    public function __construct(){
-      $this->db = new Database();
+        public function login(){
+            $this->db->setQuery('SELECT * FROM users WHERE ACTIVE = 1 AND BINARY USERNAME = :username AND BINARY PASSWORD = :password');
+            $this->db->setParameters([
+                ':username' => $this->username,
+                ':password' => $this->password
+            ]);
+
+            $row = $this->db->getSingle();
+
+            if(!empty($row)){
+                return $row;
+            }else{
+                return false;
+            }
+
+        }
     }
-
-    public function login(){
-      try {
-        $param = [
-          ':username' => $this->username,
-          ':password' => $this->password
-        ];
-
-        print_r($param);exit;
-
-        $this->db->setQuery("SELECT USERNAME, FIRSTNAME FROM users WHERE USERNAME = :username AND PASSWORD = :password");
-        $this->db->setParameters($param);
-
-        $test = $this->db->getData();
-      } catch (Exception $e) {
-        echo $e->getMessage();
-      }
-    }
-  }
- ?>
+?>
