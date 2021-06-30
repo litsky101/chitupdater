@@ -173,6 +173,8 @@
 			</div>
 			<!--end::Login-->
 		</div>
+
+		<div class="spinner"></div>
 		<!--end::Main-->
 		<script>var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";</script>
 		<!--begin::Global Config(global config for global JS scripts)-->

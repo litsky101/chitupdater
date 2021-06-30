@@ -13,7 +13,7 @@
 	<link href="<?php echo URLROOT; ?>/css/themes/layout/header/menu/dark.css" rel="stylesheet" type="text/css" />
 	<link href="<?php echo URLROOT; ?>/css/themes/layout/brand/dark.css" rel="stylesheet" type="text/css" />
 	<link href="<?php echo URLROOT; ?>/css/themes/layout/aside/dark.css" rel="stylesheet" type="text/css" />
-	<title><?php echo SITENAME; ?> <?= !empty($data['title']) ? '|' . $data['title'] : ''; ?></title>
+	<title><?php echo SITENAME; ?> <?= !empty($data['title']) ? '| ' . $data['title'] : ''; ?></title>
 </head>
 <body id="kt_body" class="header-fixed header-mobile-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
 	<div class="d-flex flex-column flex-root">
@@ -36,7 +36,7 @@
 				<div id="kt_header_menu" class="header-menu header-menu-mobile header-menu-layout-default">
 					<div id="kt_header" class="header header-fixed">
 						<div class="container-fluid d-flex align-items-stretch justify-content-between">
-							<div class="text-white h1 mt-5"></div>
+							<div class="text-white h1 mt-5"><?= !empty($data['title']) ? $data['title'] : ''; ?></div>
 							<div class="text-white h1 mt-5">
 								<span class="text-white font-weight-bolder font-size-base d-none d-md-inline mr-3">Welcome <?php echo $_SESSION['name'] ;?></span>
 								<!-- <button type="button" class="btn btn-danger">Logout</button> -->

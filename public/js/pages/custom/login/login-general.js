@@ -3,6 +3,7 @@
 // Class Definition
 var KTLogin = function() {
     var _login;
+    var spinner = $('#loader');
 
     var _showForm = function(form) {
         var cls = 'login-' + form + '-on';
