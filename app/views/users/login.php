@@ -81,9 +81,9 @@
 							<div class="alert alert-danger <?php echo (!empty($data['incorrect']) ? '' : 'collapse'); ?>">
 								<?php echo $data['incorrect']; ?>
 							</div>
-
+							<div class="spinner lg spinner-primary mr-15"></div>
 							<!--begin::Form-->
-							<form class="form" novalidate="novalidate" id="kt_login_signin_form" method="POST" action="<?php echo URLROOT; ?>/users/login">
+							<form class="form" novalidate="novalidate" id="kt_login_signin_form" action="<?php echo URLROOT; ?>/users/login" method="POST">
 								<div class="form-group">
 									<input class="form-control form-control-solid h-auto py-5 px-6" type="text" placeholder="Username" name="username" autocomplete="off" />
 								</div>
@@ -174,7 +174,6 @@
 			<!--end::Login-->
 		</div>
 
-		<div class="spinner"></div>
 		<!--end::Main-->
 		<script>var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";</script>
 		<!--begin::Global Config(global config for global JS scripts)-->

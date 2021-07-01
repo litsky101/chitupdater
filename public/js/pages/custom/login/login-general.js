@@ -55,7 +55,8 @@ var KTLogin = function() {
 
             validation.validate().then(function(status) {
 		        if (status == 'Valid') {
-					$('#kt_login_signin_form').submit();
+					 $('#kt_login_signin_form').submit();
+
 				} else {
 
 				}

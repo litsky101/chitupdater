@@ -27,24 +27,17 @@
 
 				<?php  require_once '../app/views/includes/navigation.php'; ?>
 			</div>
-		</div>
-	</div>
 
-	<div id="kt_header" class="header header-fixed">
-		<div class="container-fluid d-flex align-items-stretch justify-content-between">
-			<div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
-				<div id="kt_header_menu" class="header-menu header-menu-mobile header-menu-layout-default">
-					<div id="kt_header" class="header header-fixed">
-						<div class="container-fluid d-flex align-items-stretch justify-content-between">
-							<div class="text-white h1 mt-5"><?= !empty($data['title']) ? $data['title'] : ''; ?></div>
-							<div class="text-white h1 mt-5">
-								<span class="text-white font-weight-bolder font-size-base d-none d-md-inline mr-3">Welcome <?php echo $_SESSION['name'] ;?></span>
-								<!-- <button type="button" class="btn btn-danger">Logout</button> -->
-								<a class="btn btn-danger" href="<?php echo URLROOT; ?>/users/logout">Logout</a>
-							</div>
-						</div>
+			<div id="kt_header" class="header header-fixed">
+			    <div class="container-fluid d-flex align-items-stretch justify-content-between">
+			        <div class="text-white h1 mt-5"><?= !empty($data['title']) ? $data['title'] : ''; ?></div>
+
+					<div class="text-white h1 mt-5">
+						<span class="text-white font-weight-bolder font-size-base d-none d-md-inline mr-3">Welcome <?php echo $_SESSION['name'] ;?></span>
+						<!-- <button type="button" class="btn btn-danger">Logout</button> -->
+						<a class="btn btn-danger" href="<?php echo URLROOT; ?>/users/logout">Logout</a>
 					</div>
-				</div>
+			    </div>
 			</div>
-		</div>
-	</div>
+
+			<div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">

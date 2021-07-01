@@ -8,7 +8,7 @@
             if(!isLoggedIn()){
                 $this->view('users/login', []);
             }else{
-                $this->view('pages/index', []);
+                $this->view('index', []);
             }
         }
 
