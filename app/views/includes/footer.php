@@ -6,6 +6,8 @@
     <script src="<?php echo URLROOT; ?>/plugins/custom/prismjs/prismjs.bundle.js"></script>
     <script src="<?php echo URLROOT; ?>/js/scripts.bundle.js"></script>
     <script src="<?php echo URLROOT; ?>/js/pages/custom/login/login-general.js"></script>
+    <script src="<?php echo URLROOT; ?>/js/pages/xlsx.full.min.js"></script>
     <script src="<?php echo URLROOT; ?>/js/pages/chitupload.js"></script>
+
 </body>
 </html>

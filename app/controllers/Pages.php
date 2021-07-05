@@ -16,7 +16,10 @@
             if(!isLoggedIn()){
                 $this->view('users/login', []);
             }else{
-                $this->view('pages/chitupload', ['title' => 'Chit Upload']);
+                $this->userModel = $this->model('Employee');
+                $branches = $this->userModel->loadBranches();
+
+                $this->view('pages/chitupload', ['title' => 'Chit Upload', 'branches' => $branches]);
             }
         }
 

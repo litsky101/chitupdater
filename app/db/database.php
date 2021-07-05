@@ -11,8 +11,13 @@
         private $user = DB_USER;
         private $pass = DB_PASS;
 
-        public function __construct(){
+        public function __construct($hostBranch = "", $dbBranch = ""){
             try{
+                if(!empty($hostBranch) && !empty($dbBranch)){
+                    $this->server = $hostBranch;
+                    $this->db = $dbBranch;
+                }
+
                 $this->conn = new PDO("mysql:host={$this->server};dbname={$this->db};", $this->user, $this->pass);
                 $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             }catch(PDOException $er){
