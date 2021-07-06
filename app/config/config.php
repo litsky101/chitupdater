@@ -1,5 +1,5 @@
 <?php
-  define('HOST', 'localhost');
+  define('HOST', '127.0.0.1');
   define('DB', 'chit');
   define('DB_USER', 'root');
   define('DB_PASS', 'supervisor');

@@ -8,6 +8,6 @@
     <script src="<?php echo URLROOT; ?>/js/pages/custom/login/login-general.js"></script>
     <script src="<?php echo URLROOT; ?>/js/pages/xlsx.full.min.js"></script>
     <script src="<?php echo URLROOT; ?>/js/pages/chitupload.js"></script>
-
+    <script src="<?php echo URLROOT; ?>/js/pages/page.js"></script>
 </body>
 </html>
