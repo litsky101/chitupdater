@@ -29,10 +29,25 @@
             }
         }
 
-        public function updateChitMany(){
-            $data = ['name' => 'tolits', 'age' => 28];
+        public function updateChitMany($server, $dbName, $queries){
+            try {
+                
 
-            echo json_encode($data);
+                for ($i=0; $i < count($queries); $i++) { 
+                    $this->db = new Database($server, $dbName);
+                    $this->db->setQuery($queries[$i]);
+                    $this->db->beginTransaction();
+                    $this->db->executeQuery();
+                }
+
+                $this->db->commitTransaction();
+                echo "success";
+
+            } catch (Exception $er) {
+                $this->db->rollbackTransaction();
+                echo $er->getMessage();
+            }
+            
         }
     }
  ?>
