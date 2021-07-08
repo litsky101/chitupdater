@@ -8,6 +8,7 @@
     <script src="<?php echo URLROOT; ?>/js/pages/custom/login/login-general.js"></script>
     <script src="<?php echo URLROOT; ?>/js/pages/xlsx.full.min.js"></script>
     <script src="<?php echo URLROOT; ?>/js/pages/chitupload.js"></script>
+    <script src="<?php echo URLROOT; ?>/js/pages/crud/ktdatatable/base/data-local.js"></script>
 
 </body>
 </html>

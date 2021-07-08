@@ -29,10 +29,16 @@
             }
         }
 
+        public function updateChit(){
+            $this->db = new Database();
+        }
+
         public function updateChitMany(){
             $data = ['name' => 'tolits', 'age' => 28];
 
             echo json_encode($data);
         }
+
+        
     }
  ?>

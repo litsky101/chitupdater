@@ -17,41 +17,20 @@
                                     </div>
                                     <div class="col-md-3 my-2 my-md-0">
                                         <div class="d-flex align-items-center">
-                                            <label class="mr-3 mb-0 d-none d-md-block">Group:</label>
-                                            <select class="form-control" id="member-table-group-filter">
-                                                <option value="">All</option>
+                                            <label class="mr-3 mb-0 d-none d-md-block">Branch:</label>
+                                            <select class="form-control" id="branchselect">
+                                                <?php
+                                                    foreach ($data['branches'] as $row) {
+                                                        echo "<option value='" . $row['IPADDRESS'] . "'>" . $row['BRANCHNAME'] . "</option>";
+                                                    }
+                                                 ?>
                                             </select>
                                         </div>
-                                    </div>
-                                    <div class="col-md-2 my-2 my-md-0 d-none">
-                                        <div class="d-flex align-items-center">
-                                            <label class="mr-3 mb-0 d-none d-md-block">Active:</label>
-                                            <select class="form-control" id="member-table-active-filter">
-                                                <option value="">All</option>
-                                                <option value="1">Yes</option>
-                                                <option value="0">No</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 my-2 my-md-0">
-                                        <button class="btn btn-success float-right" id="btn-init-member-add"><i class="fas fa-user-plus"></i>Add Member</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <table class="table table-hover">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th style="width:5px;">#</th>
-                                    <th>Full Name</th>
-                                    <th>Group</th>
-                                    <th>Email</th>
-                                    <th>Contact No.</th>
-                                    <th>Address</th>
-                                </tr>
-                            </thead>
-                            <tbody id="member-table"></tbody>
-                        </table>
+                        <div class="datatable datatable-bordered datatable-head-custom" id="member-table"></div>
                     </div>
                 </div>
             </div>
