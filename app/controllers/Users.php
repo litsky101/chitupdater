@@ -22,7 +22,10 @@
                 $loggedInUser = $this->userModel->login();
 
                 if(!empty($loggedInUser)){
-                    $this->createUserSession($loggedInUser);
+                    $_SESSION['user_id'] = $loggedInUser->ID;
+                    $_SESSION['username'] = $loggedInUser->USERNAME;
+                    $_SESSION['name'] = $loggedInUser->FIRSTNAME;
+                    echo 1;
                 }else{
                     $data['incorrect'] = 'Incorrect username or password';
                     $this->view('users/login', $data);

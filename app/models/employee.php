@@ -29,6 +29,7 @@
             }
         }
 
+<<<<<<< HEAD
         public function updateChit(){
             $this->db = new Database();
         }
@@ -37,6 +38,27 @@
             $data = ['name' => 'tolits', 'age' => 28];
 
             echo json_encode($data);
+=======
+        public function updateChitMany($server, $dbName, $queries){
+            try {
+                
+
+                for ($i=0; $i < count($queries); $i++) { 
+                    $this->db = new Database($server, $dbName);
+                    $this->db->setQuery($queries[$i]);
+                    $this->db->beginTransaction();
+                    $this->db->executeQuery();
+                }
+
+                $this->db->commitTransaction();
+                echo "success";
+
+            } catch (Exception $er) {
+                $this->db->rollbackTransaction();
+                echo $er->getMessage();
+            }
+            
+>>>>>>> e309becc0cb726f8cf6eda99745be3eac3df6c58
         }
 
         

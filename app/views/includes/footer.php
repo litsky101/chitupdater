@@ -9,6 +9,6 @@
     <script src="<?php echo URLROOT; ?>/js/pages/xlsx.full.min.js"></script>
     <script src="<?php echo URLROOT; ?>/js/pages/chitupload.js"></script>
     <script src="<?php echo URLROOT; ?>/js/pages/crud/ktdatatable/base/data-local.js"></script>
-
+    <script src="<?php echo URLROOT; ?>/js/pages/page.js"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
 <?php require_once '../app/views/includes/header.php' ?>
+<div id="loader"></div>
 <div class="d-flex flex-column flex-root">
 	<!--begin::Login-->
 	<div class="login login-1 login-signin-on d-flex flex-column flex-lg-row flex-column-fluid bg-white" id="kt_login">
@@ -53,7 +54,8 @@
 					</div>
 
 					<!--begin::Form-->
-					<form class="form" novalidate="novalidate" id="kt_login_signin_form" action="<?php echo URLROOT; ?>/users/login" method="POST">
+					<!-- <form class="form" novalidate="novalidate" id="kt_login_signin_form" action="<?php //echo URLROOT; ?>/users/login" method="POST"> -->
+					<form class="form" novalidate="novalidate" id="kt_login_signin_form" method="POST">
 						<div class="form-group">
 							<input class="form-control form-control-solid h-auto py-5 px-6" type="text" placeholder="Username" name="username" autocomplete="off" />
 						</div>
@@ -142,5 +144,7 @@
 		<!--end::Content-->
 	</div>
 	<!--end::Login-->
+	
 </div>
+
 <?php require_once '../app/views/includes/footer.php' ?>

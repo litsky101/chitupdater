@@ -2,6 +2,7 @@ $(document).ready(function(){
 
     var $cmd = $("#branchselect");
     var $table = $("#memberlist");
+    var spinner = $('#loader');
     //load branches
     //loadBranches();
 
@@ -23,17 +24,62 @@ $(document).ready(function(){
             showCancelButton: true
         }).then((result) =>{
             if(result.isConfirmed){
-                var rowCount = $('#memberlist tbody tr').length;
+                let rowCount = $('#memberlist tbody tr').length;
+                let server = $('#branchselect option:selected').val();
+                //console.log($('#memberlist').html());
 
                 if(rowCount > 0){
-                    var test = $("table tr").each(function(i, v){
-                            data[i] = Array();
-                            $(this).children('td').each(function(ii, vv){
-                                data[i][ii] = $(this).text();
-                            });
-                        })
+                    let tblData = [];
 
-                    $('tbody').remove();
+                    $('#memberlist tbody tr').each(function(){
+                        let obj = {};
+                        let currentRow = $(this);
+
+                        let empId = currentRow.find("td:eq(0)").text();
+                        let empName = currentRow.find("td:eq(1)").text();
+                        let empSection = currentRow.find("td:eq(2)").text();
+                        let empStatus = currentRow.find("td:eq(3)").text();
+                        let chitVal = currentRow.find("td:eq(4)").text();
+
+                        obj.empId = empId;
+                        obj.empName = empName;
+                        obj.empSection = empSection;
+                        obj.empStatus = empStatus;
+                        obj.chitVal = chitVal;
+
+                        tblData.push(obj);
+                    });
+                    
+                    $.ajax({
+                        url: 'http://' + document.location.hostname + '/chitupdater/chitupload/updatechitmany/',
+                        type: 'POST',
+                        data: {
+                            server: server,
+                            details: tblData
+                        },
+                        beforeSend: function(){
+                            spinner.show();
+                        },
+                        success: function(resp){
+                            spinner.hide();
+                            if(resp == 'success'){
+                                Swal.fire({
+                                    text: "Update successfully",
+                                    icon: "success"
+                                });
+
+                                $("#memberlist tbody").empty();
+                            }else{
+                                console.log(resp);
+                            }
+                        },
+                        error: function(){
+                            console.log("Error");
+                        }
+
+                    });
+                    
+                    
                 }else{
                     Swal.fire({
                         text: "Please select file for chit update.",
@@ -64,18 +110,18 @@ $(document).ready(function(){
     //     });
     // }
 
-    function updatechit(){
-        let server = $('#branchselect option:selected').val();
+    // function updatechit(){
+    //     let server = $('#branchselect option:selected').val();
 
-        $.ajax({
-            type: 'POST',
-            url: 'http://' + document.location.hostname + '/chitupdater/' + 'chitupload/updatechitmany',
-            dataType: 'json',
-            sucess: function(data){
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: 'http://' + document.location.hostname + '/chitupdater/' + 'chitupload/updatechitmany',
+    //         dataType: 'json',
+    //         sucess: function(data){
 
-            }
-        });
-    }
+    //         }
+    //     });
+    // }
 
     function ExportToTable() {
          var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;
@@ -151,19 +197,34 @@ $(document).ready(function(){
          return columnSet;
      }
 
-     function BindTable(jsondata, tableid) {/*Function used to convert the JSON array to Html Table*/
-         var columns = BindTableHeader(jsondata, tableid); /*Gets all the column headings of Excel*/
-         var row$ = $('<tbody>');
-         for (var i = 0; i < jsondata.length; i++) {
-             row$.append("<tr class='rw'>");
-             for (var colIndex = 0; colIndex < columns.length; colIndex++) {
-                 var cellValue = jsondata[i][columns[colIndex]];
-                 if (cellValue == null)
-                     cellValue = "";
-                 row$.append($('<td/>').html(cellValue));
-             }
-             row$.append($('</tbody>').html());
-             $(tableid).append(row$);
-         }
-     }
+     function BindTable(jsondata, tableid) {/*Function used to convert the JSON array to Html Table*/  
+        var columns = BindTableHeader(jsondata, tableid); /*Gets all the column headings of Excel*/ 
+        $(tableid).append('<tbody/>'); 
+        for (var i = 0; i < jsondata.length; i++) {  
+            var row$ = $("<tr class='rw'/>");  
+            for (var colIndex = 0; colIndex < columns.length; colIndex++) {  
+                var cellValue = jsondata[i][columns[colIndex]];  
+                if (cellValue == null)  
+                    cellValue = "";  
+                row$.append($('<td/>').html(cellValue));  
+            }  
+            $(tableid).append(row$);  
+        }  
+    }  
+
+    //  function BindTable(jsondata, tableid) {/*Function used to convert the JSON array to Html Table*/
+    //      var columns = BindTableHeader(jsondata, tableid); /*Gets all the column headings of Excel*/
+    //      var row$ = $('<tbody>');
+    //      for (var i = 0; i < jsondata.length; i++) {
+    //          row$.append("<tr class='rw'>");
+    //          for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+    //              var cellValue = jsondata[i][columns[colIndex]];
+    //              if (cellValue == null)
+    //                  cellValue = "";
+    //              row$.append($('<td/>').html(cellValue));
+    //          }
+    //          row$.append($('</tbody>').html());
+    //          $(tableid).append(row$);
+    //      }
+    //  }
 });

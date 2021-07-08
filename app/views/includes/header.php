@@ -14,6 +14,7 @@
 	<link href="<?php echo URLROOT; ?>/css/themes/layout/header/menu/dark.css" rel="stylesheet" type="text/css" />
 	<link href="<?php echo URLROOT; ?>/css/themes/layout/brand/dark.css" rel="stylesheet" type="text/css" />
 	<link href="<?php echo URLROOT; ?>/css/themes/layout/aside/dark.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="<?php echo URLROOT; ?>/css/loader.css">
 	<title><?php echo SITENAME; ?> <?= !empty($data['title']) ? '| ' . $data['title'] : ''; ?></title>
 </head>
 <body id="kt_body" class="header-fixed header-mobile-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
