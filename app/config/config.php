@@ -1,10 +1,6 @@
 <?php
   define('HOST', '127.0.0.1');
-<<<<<<< HEAD
   define('DB', 'chitupdater');
-=======
-  define('DB', 'chit');
->>>>>>> e309becc0cb726f8cf6eda99745be3eac3df6c58
   define('DB_USER', 'root');
   define('DB_PASS', 'supervisor');
 

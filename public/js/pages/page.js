@@ -7,13 +7,13 @@ $(document).ready(function(){
 
     btnLogout.on('click', function(){
         $.ajax({
-            url: 'http://' + document.location.hostname + '/chitupdater/' + 'users/logout',
+            url: 'http://' + document.location.host + '/chitupdater/' + 'users/logout',
             type: 'POST',
             beforeSend: function(){
                 spinner.show();
             },
             success: function(){
-                window.location.href = 'http://' + document.location.hostname + '/chitupdater/' + 'pages/index'
+                window.location.href = 'http://' + document.location.host + '/chitupdater/' + 'pages/index'
             },
         }).completed(function(){
             spinner.hide();
@@ -22,13 +22,13 @@ $(document).ready(function(){
 
     members.on('click', function(){
         $.ajax({
-            url: 'http://' + document.location.hostname + '/chitupdater/' + 'pages/members',
+            url: 'http://' + document.location.host + '/chitupdater/' + 'pages/members',
             type: 'POST',
             beforeSend: function(){
                 spinner.show();
             },
             success: function(){
-                window.location.href = 'http://' + document.location.hostname + '/chitupdater/' + 'pages/members'
+                window.location.href = 'http://' + document.location.host + '/chitupdater/' + 'pages/members'
             },
         }).completed(function(){
             spinner.hide();
@@ -37,13 +37,13 @@ $(document).ready(function(){
 
     chitUpload.on('click', function(){
         $.ajax({
-            url: 'http://' + document.location.hostname + '/chitupdater/' + 'pages/chitupload',
+            url: 'http://' + document.location.host + '/chitupdater/' + 'pages/chitupload',
             type: 'POST',
             beforeSend: function(){
                 spinner.show();
             },
             success: function(){
-                window.location.href = 'http://' + document.location.hostname + '/chitupdater/' + 'pages/chitupload'
+                window.location.href = 'http://' + document.location.host + '/chitupdater/' + 'pages/chitupload'
             },
         }).completed(function(){
             spinner.hide();
@@ -52,13 +52,13 @@ $(document).ready(function(){
 
     logo.on('click', function(){
         $.ajax({
-            url: 'http://' + document.location.hostname + '/chitupdater/' + 'pages/index',
+            url: 'http://' + document.location.host + '/chitupdater/' + 'pages/index',
             type: 'POST',
             beforeSend: function(){
                 spinner.show();
             },
             success: function(){
-                window.location.href = 'http://' + document.location.hostname + '/chitupdater/' + 'pages/index'
+                window.location.href = 'http://' + document.location.host + '/chitupdater/' + 'pages/index'
             },
         }).completed(function(){
             spinner.hide();

@@ -93,5 +93,23 @@
         public function __destruct(){
             $this->conn = null;
         }
+
+        public function returnJSON(){
+            try{
+                $result = [];
+                $this->conn->exec("set names utf8");
+                $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+                $this->execute();
+
+                while($row = $this->statement->fetch(PDO::FETCH_ASSOC)){
+                    array_push($result, $row);
+                }
+
+                return $result;
+
+            }catch(PDOException $er){
+                echo $er->getMessage();
+            }
+        }
     }
 ?>

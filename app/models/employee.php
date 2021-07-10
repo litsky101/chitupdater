@@ -29,21 +29,11 @@
             }
         }
 
-<<<<<<< HEAD
-        public function updateChit(){
-            $this->db = new Database();
-        }
-
-        public function updateChitMany(){
-            $data = ['name' => 'tolits', 'age' => 28];
-
-            echo json_encode($data);
-=======
         public function updateChitMany($server, $dbName, $queries){
             try {
-                
 
-                for ($i=0; $i < count($queries); $i++) { 
+
+                for ($i=0; $i < count($queries); $i++) {
                     $this->db = new Database($server, $dbName);
                     $this->db->setQuery($queries[$i]);
                     $this->db->beginTransaction();
@@ -57,10 +47,14 @@
                 $this->db->rollbackTransaction();
                 echo $er->getMessage();
             }
-            
->>>>>>> e309becc0cb726f8cf6eda99745be3eac3df6c58
+
         }
 
-        
+        public function getEmployees($server, $dbName){
+            $this->db = new Database($server, $dbName);
+            $this->db->setQuery("SELECT idfile as EmployeeID, CONCAT(lastname,', ',firstname) as Fullname, basic as Chit FROM employees order by lastname, firstname asc");
+
+            return $this->db->returnJSON();
+        }
     }
  ?>

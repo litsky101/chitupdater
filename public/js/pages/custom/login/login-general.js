@@ -4,7 +4,7 @@
 var KTLogin = function() {
     var _login;
     var spinner = $('#loader');
-    
+
     var _showForm = function(form) {
         var cls = 'login-' + form + '-on';
         var form = 'kt_login_' + form + '_form';
@@ -57,12 +57,12 @@ var KTLogin = function() {
 		        if (status == 'Valid') {
                     //$('#kt_login_signin_form').submit();
                     var spinner = $('#loader');
-                             
+
 					$('#kt_login_signin_form').on('click', function(){
                         var user = $('input[name="username"]').val();
                         var pass = $('input[name="password"]').val();
                         $.ajax({
-                            url: 'http://' + document.location.hostname + '/chitupdater/' + 'users/login',
+                            url: 'http://' + document.location.host + '/chitupdater/' + 'users/login',
                             type: 'POST',
                             data: {
                                 username: user,
@@ -72,7 +72,10 @@ var KTLogin = function() {
                                 spinner.show();
                             },
                             success:function(resp){
-                                window.location.href = 'http://' + document.location.hostname + '/chitupdater/' + 'pages/index'
+                                window.location.href = 'http://' + document.location.host + '/chitupdater/' + 'pages/index'
+                            },
+                            error:function(resp){
+                                console.log(resp);
                             }
                         });
                     });

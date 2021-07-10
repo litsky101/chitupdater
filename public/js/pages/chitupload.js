@@ -49,9 +49,9 @@ $(document).ready(function(){
 
                         tblData.push(obj);
                     });
-                    
+
                     $.ajax({
-                        url: 'http://' + document.location.hostname + '/chitupdater/chitupload/updatechitmany/',
+                        url: 'http://' + document.location.host + '/chitupdater/chitupload/updatechitmany/',
                         type: 'POST',
                         data: {
                             server: server,
@@ -78,8 +78,8 @@ $(document).ready(function(){
                         }
 
                     });
-                    
-                    
+
+
                 }else{
                     Swal.fire({
                         text: "Please select file for chit update.",
@@ -97,7 +97,7 @@ $(document).ready(function(){
     //
     //     $.ajax({
     //         type: 'POST',
-    //         url: 'http://' + document.location.hostname + '/chitupdater/' + 'chitupload/getbranches',
+    //         url: 'http://' + document.location.host + '/chitupdater/' + 'chitupload/getbranches',
     //         dataType: 'json',
     //         success: function(data){
     //             $.each(data, function(key, entry){
@@ -115,7 +115,7 @@ $(document).ready(function(){
 
     //     $.ajax({
     //         type: 'POST',
-    //         url: 'http://' + document.location.hostname + '/chitupdater/' + 'chitupload/updatechitmany',
+    //         url: 'http://' + document.location.host + '/chitupdater/' + 'chitupload/updatechitmany',
     //         dataType: 'json',
     //         sucess: function(data){
 
@@ -197,20 +197,20 @@ $(document).ready(function(){
          return columnSet;
      }
 
-     function BindTable(jsondata, tableid) {/*Function used to convert the JSON array to Html Table*/  
-        var columns = BindTableHeader(jsondata, tableid); /*Gets all the column headings of Excel*/ 
-        $(tableid).append('<tbody/>'); 
-        for (var i = 0; i < jsondata.length; i++) {  
-            var row$ = $("<tr class='rw'/>");  
-            for (var colIndex = 0; colIndex < columns.length; colIndex++) {  
-                var cellValue = jsondata[i][columns[colIndex]];  
-                if (cellValue == null)  
-                    cellValue = "";  
-                row$.append($('<td/>').html(cellValue));  
-            }  
-            $(tableid).append(row$);  
-        }  
-    }  
+     function BindTable(jsondata, tableid) {/*Function used to convert the JSON array to Html Table*/
+        var columns = BindTableHeader(jsondata, tableid); /*Gets all the column headings of Excel*/
+        $(tableid).append('<tbody/>');
+        for (var i = 0; i < jsondata.length; i++) {
+            var row$ = $("<tr class='rw'/>");
+            for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+                var cellValue = jsondata[i][columns[colIndex]];
+                if (cellValue == null)
+                    cellValue = "";
+                row$.append($('<td/>').html(cellValue));
+            }
+            $(tableid).append(row$);
+        }
+    }
 
     //  function BindTable(jsondata, tableid) {/*Function used to convert the JSON array to Html Table*/
     //      var columns = BindTableHeader(jsondata, tableid); /*Gets all the column headings of Excel*/

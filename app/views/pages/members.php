@@ -11,7 +11,7 @@
                                 <div class="row align-items-center">
                                     <div class="col-md-7 my-2 my-md-0">
                                         <div class="input-icon">
-                                            <input type="text" class="form-control" placeholder="Search..." id="member-table-search" />
+                                            <input type="text" class="form-control" placeholder="Search..." id="kt_datatable_search_query" />
                                             <span><i class="flaticon2-search-1 text-muted"></i></span>
                                         </div>
                                     </div>
@@ -30,7 +30,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="datatable datatable-bordered datatable-head-custom" id="member-table"></div>
+                        <div class="datatable datatable-bordered datatable-head-custom" id="members_datatable"></div>
                     </div>
                 </div>
             </div>

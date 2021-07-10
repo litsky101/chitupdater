@@ -6618,7 +6618,9 @@ License: You must have a valid license purchased only from themeforest(the above
 		<script src="public/js/scripts.bundle.js"></script>
 		<!--end::Global Theme Bundle-->
 		<!--begin::Page Scripts(used by this page)-->
-		
+		<script src="public/js/pages/members.js"></script>
+		<!-- <script src="public/js/pages/crud/ktdatatable/base/data-local.js"></script> -->
+		<!-- <script src="public/js/pages/members.js"></script> -->
 		<!--end::Page Scripts-->
 	</body>
 	<!--end::Body-->
